@@ -7,6 +7,7 @@ export type UseRangeCalendarProps = {
     isDateDisabled: Matcher;
     isDateUnavailable: Matcher;
     focusedValue: Ref<DateValue | undefined>;
+    allowNonContiguousRanges: Ref<boolean>;
 };
 export declare function useRangeCalendarState(props: UseRangeCalendarProps): {
     isInvalid: import('vue').ComputedRef<boolean>;

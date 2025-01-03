@@ -59,6 +59,8 @@ export interface RangeCalendarRootProps extends PrimitiveProps {
   modelValue?: DateRange
   /** The placeholder date, which is used to determine what month to display when no date is selected. This updates as the user navigates the calendar and can be used to programmatically control the calendar view */
   placeholder?: DateValue
+    /** When combined with `isDateUnavailable`, determines whether non-contiguous ranges, i.e. ranges containing unavailable dates, may be selected. */
+    allowNonContiguousRanges?: boolean
   /** This property causes the previous and next buttons to navigate by the number of months displayed at once, rather than one month */
   pagedNavigation?: boolean
   /** Whether or not to prevent the user from deselecting a date without selecting another date first */
@@ -131,6 +133,7 @@ const props = withDefaults(defineProps<RangeCalendarRootProps>(), {
   locale: 'en',
   isDateDisabled: undefined,
   isDateUnavailable: undefined,
+    allowNonContiguousRanges: false,
 })
 const emits = defineEmits<RangeCalendarRootEmits>()
 
@@ -170,6 +173,7 @@ const {
   dir: propsDir,
   nextPage: propsNextPage,
   prevPage: propsPrevPage,
+    allowNonContiguousRanges,
 } = toRefs(props)
 
 const { primitiveElement, currentElement: parentElement }
@@ -247,6 +251,7 @@ const {
   isDateDisabled,
   isDateUnavailable,
   focusedValue,
+    allowNonContiguousRanges,
 })
 
 watch(modelValue, (_modelValue) => {

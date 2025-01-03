@@ -37,8 +37,9 @@ type DateRangePickerRootContext = {
     onPlaceholderChange: (date: DateValue) => void;
     onStartValueChange: (date: DateValue | undefined) => void;
     dir: Ref<Direction>;
+    allowNonContiguousRanges: Ref<boolean>;
 };
-export type DateRangePickerRootProps = DateRangeFieldRootProps & PopoverRootProps & Pick<RangeCalendarRootProps, 'isDateDisabled' | 'pagedNavigation' | 'weekStartsOn' | 'weekdayFormat' | 'fixedWeeks' | 'numberOfMonths' | 'preventDeselect'>;
+export type DateRangePickerRootProps = DateRangeFieldRootProps & PopoverRootProps & Pick<RangeCalendarRootProps, 'isDateDisabled' | 'pagedNavigation' | 'weekStartsOn' | 'weekdayFormat' | 'fixedWeeks' | 'numberOfMonths' | 'preventDeselect' | 'isDateUnavailable' | 'allowNonContiguousRanges'>;
 export type DateRangePickerRootEmits = {
     /** Event handler called whenever the model value changes */
     'update:modelValue': [date: DateRange];
@@ -69,6 +70,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     locale: string;
     isDateDisabled: undefined;
     isDateUnavailable: undefined;
+    allowNonContiguousRanges: boolean;
 }>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "update:open": (value: boolean) => void;
     "update:modelValue": (date: DateRange) => void;
@@ -95,6 +97,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     locale: string;
     isDateDisabled: undefined;
     isDateUnavailable: undefined;
+    allowNonContiguousRanges: boolean;
 }>>> & {
     "onUpdate:open"?: ((value: boolean) => any) | undefined;
     "onUpdate:modelValue"?: ((date: DateRange) => any) | undefined;
@@ -117,6 +120,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     readonly: boolean;
     isDateDisabled: Matcher;
     isDateUnavailable: Matcher;
+    allowNonContiguousRanges: boolean;
 }, {}>, {
     default?(_: {}): any;
 }>;

@@ -55,6 +55,8 @@ export interface RangeCalendarRootProps extends PrimitiveProps {
     modelValue?: DateRange;
     /** The placeholder date, which is used to determine what month to display when no date is selected. This updates as the user navigates the calendar and can be used to programmatically control the calendar view */
     placeholder?: DateValue;
+    /** When combined with `isDateUnavailable`, determines whether non-contiguous ranges, i.e. ranges containing unavailable dates, may be selected. */
+    allowNonContiguousRanges?: boolean;
     /** This property causes the previous and next buttons to navigate by the number of months displayed at once, rather than one month */
     pagedNavigation?: boolean;
     /** Whether or not to prevent the user from deselecting a date without selecting another date first */
@@ -120,6 +122,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     locale: string;
     isDateDisabled: undefined;
     isDateUnavailable: undefined;
+    allowNonContiguousRanges: boolean;
 }>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "update:modelValue": (date: DateRange) => void;
     "update:placeholder": (date: DateValue) => void;
@@ -143,6 +146,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     locale: string;
     isDateDisabled: undefined;
     isDateUnavailable: undefined;
+    allowNonContiguousRanges: boolean;
 }>>> & {
     "onUpdate:modelValue"?: ((date: DateRange) => any) | undefined;
     "onUpdate:placeholder"?: ((date: DateValue) => any) | undefined;
@@ -163,6 +167,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<__
     initialFocus: boolean;
     isDateDisabled: Matcher;
     isDateUnavailable: Matcher;
+    allowNonContiguousRanges: boolean;
 }, {}>, Readonly<{
     default: (props: {
         /** The current date of the placeholder */
